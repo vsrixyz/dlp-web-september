@@ -1,0 +1,26 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import PageHeader from '@components/PageHeader.astro'
+import { Heading } from 'accessible-astro-components'
+---
+
+<DefaultLayout title="About">
+  <PageHeader
+    title="About"
+    subtitle="Use this page to introduce De La Practica, your work, and the people behind it."
+    bgType="bordered"
+  />
+  <section class="my-16">
+    <div class="narrow space-content container">
+      <Heading level="h2">Tell your story</Heading>
+      <p>
+        Share what you do, who you help, and what makes your work distinctive. This starter keeps the structure simple
+        so you can adapt it to a portfolio, studio site, personal site, or small business presence.
+      </p>
+      <p>
+        You can expand this page with testimonials, process notes, service descriptions, or a short timeline once the
+        core content is in place.
+      </p>
+    </div>
+  </section>
+</DefaultLayout>
