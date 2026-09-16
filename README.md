@@ -1,11 +1,9 @@
 # De La Practica
 
-This project was generated with `npm create accessible-astro-starter@latest`.
+Marketing site for De La Practica — digital accessibility for travel and tourism.
 
-## Included setup
-
-- Preset: Minimal
-- Launcher: Included
+Built with [Astro](https://astro.build/) on the
+[Accessible Astro Starter](https://accessible-astro.incluud.dev/).
 
 ## Getting started
 
@@ -14,12 +12,6 @@ npm install
 npm run dev
 ```
 
-## What to customize first
-
-- Update `theme.config.ts` with your site name, metadata, and navigation.
-- Replace the placeholder copy in `src/pages/`.
-- Adjust colors and spacing tokens in the theme and SCSS as needed.
-
 ## Available commands
 
 | Command | Action |
@@ -27,3 +19,17 @@ npm run dev
 | `npm run dev` | Start the local dev server |
 | `npm run build` | Build the production site |
 | `npm run preview` | Preview the production build locally |
+
+## Project notes
+
+- Site metadata, brand colors, and navigation live in `theme.config.ts`.
+- Brand colors seed the whole palette through `oklch(from …)` in
+  `src/assets/scss/base/_root.scss`. Changing a seed changes every derived step,
+  so re-check contrast after any change.
+- `src/pages/accessibility.astro` is the public accessibility statement. It
+  deliberately claims no conformance level. Update it when the site changes.
+
+## Before launch
+
+- The contact form posts to a static page and will not deliver until
+  `formAction` in `src/pages/contact.astro` points at a real form handler.

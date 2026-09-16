@@ -5,17 +5,26 @@ import { Link, Notification } from 'accessible-astro-components'
 import { Icon } from 'astro-icon/components'
 ---
 
-<DefaultLayout title="Thank you">
-  <PageHeader title="Thank you" subtitle="Your form submission was received." bgType="gradient" />
-  <section class="container my-16">
-    <div class="space-content">
+<DefaultLayout title="Thank you" description="Your message has been received.">
+  <PageHeader title="Thank you" subtitle="Your message has been received." bgType="bordered" showBreadcrumbs={false} />
+  <section class="my-16">
+    <div class="narrow space-content container">
       <Notification type="info">
         <Icon aria-hidden="true" name="lucide:info" size={24} />
-        <p>Customize this page with your own confirmation message, follow-up details, or next steps.</p>
+        <p>We aim to respond within one week.</p>
       </Notification>
-      <Link href="/contact" isButton type="primary" animateOnHover animationType="boop">
-        Back to contact
-      </Link>
+      <p>
+        We'll be in touch to set up a first call. It runs about half an hour, and you'll come away with a straight read
+        on where you stand and what it would take to improve it.
+      </p>
+      <p>
+        If you need to add anything in the meantime, email <Link href="mailto:hola@delapractica.com"
+          >hola@delapractica.com</Link
+        >.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <Link href="/" isButton type="primary" animateOnHover animationType="boop">Back to the home page</Link>
+      </div>
     </div>
   </section>
 </DefaultLayout>

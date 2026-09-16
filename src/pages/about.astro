@@ -1,26 +1,47 @@
 ---
 import DefaultLayout from '@layouts/DefaultLayout.astro'
 import PageHeader from '@components/PageHeader.astro'
-import { Heading } from 'accessible-astro-components'
+import { Heading, Link } from 'accessible-astro-components'
 ---
 
-<DefaultLayout title="About">
+<DefaultLayout
+  title="About"
+  description="Jen Macias De La Parra founded De La Practica to help people of all abilities fully experience the places they live and the places they long to be."
+>
   <PageHeader
     title="About"
-    subtitle="Use this page to introduce De La Practica, your work, and the people behind it."
+    subtitle="Accessibility is about people rather than paperwork."
     bgType="bordered"
   />
+
   <section class="my-16">
     <div class="narrow space-content container">
-      <Heading level="h2">Tell your story</Heading>
+      <Heading level="h2">Jen Macias De La Parra</Heading>
       <p>
-        Share what you do, who you help, and what makes your work distinctive. This starter keeps the structure simple
-        so you can adapt it to a portfolio, studio site, personal site, or small business presence.
+        <strong>Jen Macias De La Parra</strong> founded De La Practica to help people of all abilities fully experience the
+        places they live and the places they long to be.
       </p>
       <p>
-        You can expand this page with testimonials, process notes, service descriptions, or a short timeline once the
-        core content is in place.
+        She is the digital accessibility advisor of record for Travel Oregon's Ask an Expert program, where she supports
+        destinations, nonprofits, and small businesses across the state. Before starting this practice she led global
+        accessibility at Slalom, working out how large organizations handle access across complicated digital
+        environments.
       </p>
+      <p>
+        She believes accessibility is about people rather than paperwork, and that it's the practice of designing places
+        and experiences that leave everyone's independence and dignity intact. That includes a great many people who
+        have never thought of themselves as disabled, among them anyone living with an invisible or episodic condition
+        and anyone getting older.
+      </p>
+
+      <Heading level="h2">Work with us</Heading>
+      <p>
+        A first call runs about half an hour. Tell us what you're working with, and we'll give you a straight read on
+        where you stand and what it would take to improve it.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <Link href="/contact" isButton type="primary" animateOnHover animationType="boop">Book a call</Link>
+      </div>
     </div>
   </section>
 </DefaultLayout>

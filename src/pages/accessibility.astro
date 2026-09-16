@@ -1,0 +1,141 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import PageHeader from '@components/PageHeader.astro'
+import { Heading, Link } from 'accessible-astro-components'
+
+// Update this whenever the content of this page changes.
+const lastUpdated = 'September 15, 2026'
+
+const contactEmail = 'hola@delapractica.com'
+---
+
+<DefaultLayout
+  title="Accessibility Statement"
+  description="What has been tested on this site, what has not, and how to report a barrier."
+>
+  <PageHeader
+    title="Accessibility Statement"
+    subtitle="What has been tested on this site, what has not, and how to report a barrier."
+    bgType="bordered"
+  />
+
+  <section class="my-16">
+    <div class="narrow space-content container">
+      <p>
+        Accessibility is about equal access, which means removing the barriers that stop people using something. This
+        page says plainly what has been checked on this site, what has not, and how to tell us if something is wrong.
+      </p>
+
+      <Heading level="h2">Current status</Heading>
+      <p>
+        This site has <strong>not yet had a full manual accessibility audit</strong>. We are not going to claim a
+        conformance level we have not verified by hand.
+      </p>
+      <p>What has been done so far:</p>
+      <ul>
+        <li>
+          Every text and interactive color pair was checked by hand against the WCAG 2.2 Level AA contrast minimums, in
+          both light and dark mode. Body text measures about 13.8:1, links about 6.4:1, buttons about 12.6:1, and the
+          focus indicator about 6.3:1, each against its own background. Decorative borders are the exception, and they
+          are listed under known gaps below.
+        </li>
+        <li>Semantic landmarks, a skip link, a single H1 per page, and headings that descend without skipping a level.</li>
+        <li>
+          A visible focus indicator on every interactive element, drawn outside the control rather than on top of it.
+        </li>
+        <li>
+          Animation is wrapped in <code>prefers-reduced-motion</code>. Dark mode and high contrast have their own
+          toggles in the header, and reduced motion is in the preferences menu opened from the button beside them.
+        </li>
+        <li>Typography chosen for reading rather than for style. Details below.</li>
+      </ul>
+      <p>
+        That is a design review, not an audit. No automated test suite has been run against this site, and no assistive
+        technology has been used on it by a person. Automated tools reach roughly a third of the WCAG success criteria
+        anyway. The remaining two thirds, such as whether alternative text conveys the right thing, whether the keyboard
+        order makes sense, and whether an error message helps you recover, need a human being. That work is outstanding,
+        and this page will be updated when it is done.
+      </p>
+
+      <Heading level="h2">Typography and reading</Heading>
+      <p>
+        The type on this site is chosen for legibility first. That is a deliberate constraint rather than a default, so
+        it is worth stating what it costs and what it buys.
+      </p>
+      <p>
+        <strong
+          >The typeface is <Link href="https://www.brailleinstitute.org/freefont/" isExternal
+            >Atkinson Hyperlegible</Link
+          ></strong
+        >, published by the Braille Institute and named after its founder, J. Robert Atkinson. It was designed
+        specifically for readers with low vision. The letterforms most often confused with each other, such as capital I,
+        lowercase l and the digit 1, or capital O and zero, or b, d, p and q, are drawn to be told apart rather than to
+        match each other neatly. It is used for headings as well as body text. A second display face would have looked
+        more current, but keeping one typeface means the largest text on the page is also the most legible text on the
+        page.
+      </p>
+      <p>
+        <strong>Body text is 16 to 18 pixels</strong> depending on window width, at or above the browser default, and it
+        scales with your browser's font size setting rather than overriding it.
+      </p>
+      <p><strong>Nothing here is conveyed by color alone.</strong></p>
+      <p>
+        If this typeface is harder for you to read than a system font, that is worth knowing and worth telling us. See
+        below. Legibility research describes populations, and you are a person.
+      </p>
+
+      <Heading level="h2">Known gaps</Heading>
+      <p>These are the things we already know are imperfect. Naming them is cheaper than being caught out by them.</p>
+      <ul>
+        <li>
+          <strong>No manual screen reader pass has been completed yet</strong>, and no automated test suite runs against
+          the site.
+        </li>
+        <li>
+          <strong>Text reflows when the page finishes loading.</strong> Web fonts arrive after the first paint, and the browser
+          then re-renders every line in the new face, shifting the text under you. If you have ever lost your place on a page
+          because it jumped a moment after opening, that is what happened. It happens here, and it is fixable.
+        </li>
+        <li>
+          <strong>Line length runs to roughly 85 characters</strong> on a wide screen. WCAG asks for no more than 80. Long
+          lines make it harder to find the start of the next line, which costs low vision and dyslexic readers most.
+        </li>
+        <li>
+          <strong>The site opens in light mode</strong> even if your system is set to dark. That was a deliberate choice
+          and it is the wrong default for some people. The toggle in the menu is remembered once you use it, but you should
+          not have to ask.
+        </li>
+        <li>
+          <strong>Some content on the home page is hidden behind a click.</strong> The capabilities list is an accordion and
+          the approach section is a set of tabs, so only part of each is readable at a time. That suits a reader who is scanning
+          and works against a reader who wants the whole thing.
+        </li>
+        <li>
+          <strong>Decorative borders fall below the 3:1 non-text contrast minimum</strong>, at roughly 1.4:1. These are the
+          hairlines around cards and between sections. Nothing depends on seeing them, which is why WCAG does not count
+          them as a failure, but they are faint and we would rather say so than lean on the exemption.
+        </li>
+        <li>
+          <strong>Text zoom and reflow have not been formally tested.</strong> The layout is built to wrap on content width
+          rather than on window width, which should survive text-only zoom, but "should" is not "verified" and this is exactly
+          the kind of claim this page will not make until someone has checked it by hand.
+        </li>
+      </ul>
+
+      <Heading level="h2">Reporting a barrier</Heading>
+      <p>
+        If something on this site blocks you, we want to know. It is the fastest way for us to fix it, and we would
+        rather hear it than not.
+      </p>
+      <p>
+        Email <Link href={`mailto:${contactEmail}`}>{contactEmail}</Link> with the page address and what happened, or use
+        the <Link href="/contact">contact form</Link>. You do not need to know the technical term for it. A description in
+        your own words is genuinely more useful.
+      </p>
+      <p>We aim to respond within one week.</p>
+
+      <hr class="my-8" />
+      <p><em>Last updated: {lastUpdated}</em></p>
+    </div>
+  </section>
+</DefaultLayout>

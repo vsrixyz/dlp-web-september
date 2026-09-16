@@ -1,22 +1,23 @@
 ---
 import DefaultLayout from '@layouts/DefaultLayout.astro'
 import { Heading, Link } from 'accessible-astro-components'
-import { Icon } from 'astro-icon/components'
 ---
 
-<DefaultLayout title="404">
-  <section class="my-12">
-    <div class="container">
-      <Heading level="h1">404</Heading>
-    </div>
-  </section>
-  <section class="my-12">
-    <div class="space-content container">
-      <p class="text-2xl">This page does not exist. Don't worry though, we got you.</p>
-      <Link href="/" isButton type="primary" animateOnHover animationType="nudge">
-        Let's get you home, Astronaut
-        <Icon aria-hidden="true" name="lucide:rocket" size="1.5rem" />
-      </Link>
+<DefaultLayout title="Page not found">
+  <section class="my-24">
+    <div class="narrow space-content container">
+      <Heading level="h1">Page not found</Heading>
+      <p class="text-2xl">There's nothing at this address.</p>
+      <p>
+        The link may be out of date, or the page may have moved. If you followed a link on this site to get here, we'd
+        like to know, because that's a broken link and it's ours to fix. Email <Link
+          href="mailto:hola@delapractica.com">hola@delapractica.com</Link
+        >.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <Link href="/" isButton type="primary" animateOnHover animationType="boop">Back to the home page</Link>
+        <Link href="/contact" isButton type="secondary" animateOnHover animationType="boop">Contact</Link>
+      </div>
     </div>
   </section>
 </DefaultLayout>
