@@ -21,56 +21,63 @@ const socialLinks = themeConfig.socials ?? []
 
 <footer>
   <section class="py-16">
-    <div class="container grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)_minmax(0,1fr)]">
+    <div class="container grid grid-cols-1 gap-10 md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
       <div class="space-content">
         <Heading level="h2" size="h4">{themeConfig.name}</Heading>
         <p>
-          Replace this footer with your own links, business details, and supporting copy once you start customizing the
-          project.
+          Digital accessibility for travel and tourism. We help destinations, nonprofits, and small businesses make
+          every digital touch point usable for all visitors.
+        </p>
+        <p>
+          Digital accessibility advisor of record, Travel Oregon's <span class="whitespace-nowrap">Ask an Expert</span> program.
         </p>
       </div>
-      {
-        footerLinks.length > 0 && (
-          <div>
-            <Heading level="h2" size="h6" class="mb-4">Pages</Heading>
-            <ul class="flex flex-col gap-2">
-              {footerLinks.map((link) => (
-                <li>
-                  <Link href={link.href}>{link.label}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )
-      }
-      {
-        socialLinks.length > 0 && (
-          <div>
-            <Heading level="h2" size="h6" class="mb-4">Socials</Heading>
-            <ul class="flex flex-col gap-2">
-              {socialLinks.map((link) => (
-                <li>
-                  <Link href={link.href} isExternal>
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )
-      }
+      <div class="md:justify-self-end">
+        {
+          footerLinks.length > 0 && (
+            <>
+              <Heading level="h2" size="h6" class="mb-4">
+                Pages
+              </Heading>
+              <ul class="flex flex-col gap-2">
+                {footerLinks.map((link) => (
+                  <li>
+                    <Link href={link.href}>{link.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )
+        }
+        {
+          socialLinks.length > 0 && (
+            <>
+              <Heading level="h2" size="h6" class="mt-8 mb-4">
+                Socials
+              </Heading>
+              <ul class="flex flex-col gap-2">
+                {socialLinks.map((link) => (
+                  <li>
+                    <Link href={link.href} isExternal>
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )
+        }
+      </div>
     </div>
   </section>
   <section class="py-8">
-    <div class="container flex flex-col gap-4 md:flex-row md:justify-between">
+    <div class="container flex flex-col gap-2 md:flex-row md:justify-between">
       <p>
-        &copy; {currentYear} - Starter Theme for <Link href="https://astro.build/">Astro</Link>.
+        &copy; {currentYear} De La Practica LLC - <Link href="https://accessible-astro.incluud.dev/" isExternal
+          >Accessible Astro</Link
+        >
       </p>
-      <p>
-        Made with ❤️ by <Link href="https://github.com/markteekman">Mark Teekman</Link>. Part of <Link
-          href="https://www.incluud.dev">Incluud</Link
-        >.
-      </p>
+      <p><Link href="/accessibility">Accessibility Statement</Link></p>
     </div>
   </section>
 </footer>

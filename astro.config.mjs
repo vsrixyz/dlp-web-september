@@ -35,7 +35,7 @@ const viteConfig = {
 
 export default defineConfig({
   compressHTML: true,
-  site: 'https://example.com',
+  site: 'https://delapractica.com',
   integrations: [compress(), icon(), sitemap()],
   vite: viteConfig,
 

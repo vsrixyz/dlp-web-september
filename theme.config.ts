@@ -7,15 +7,20 @@ export default defineThemeConfig({
   id: 'de-la-practica',
   seo: {
     title: 'De La Practica',
-    description: 'De La Practica is a lightweight accessible content site with room to grow.',
+    description: 'Digital accessibility for travel and tourism. De La Practica helps destinations make websites, apps, booking engines, and visitor guides usable for all travelers.',
+    author: 'Jen Macias De La Parra',
     image: previewImage,
   },
   logo: logoImage,
   colors: {
-    primary: '#d648ff',
-    secondary: '#00d1b7',
-    neutral: '#b9bec4',
-    outline: '#ff4500',
+    // cobalt blue, the lead brand color
+    primary: '#2b4bd4',
+    // ochre, the warm counterpoint
+    secondary: '#cc9034',
+    // blush, tinting the neutral greys warm
+    neutral: '#f3dede',
+    // salmon, reserved for focus indicators
+    outline: '#ee9c86',
   },
   navigation: {
     darkmode: true,

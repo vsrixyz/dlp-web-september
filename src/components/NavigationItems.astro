@@ -1,6 +1,6 @@
 ---
 import themeConfig from '@theme-config'
-import { Link, DarkMode } from 'accessible-astro-components'
+import { Link, DarkMode, HighContrast } from 'accessible-astro-components'
 import { LauncherTrigger } from 'accessible-astro-launcher'
 import { Icon } from 'astro-icon/components'
 
@@ -64,13 +64,19 @@ const isCurrentPage = (href: string): boolean => {
   {
     themeConfig.navigation.darkmode && (
       <li class="menu-item type-icon animate-rotate">
-        <DarkMode>
+        <DarkMode initialMode="light">
           <Icon aria-hidden="true" name="lucide:moon" slot="light" />
           <Icon aria-hidden="true" name="lucide:sun" slot="dark" />
         </DarkMode>
       </li>
     )
   }
+  <li class="menu-item type-icon animate-rotate">
+    <HighContrast>
+      <Icon aria-hidden="true" name="lucide:contrast" slot="off" />
+      <Icon aria-hidden="true" name="lucide:eclipse" slot="on" />
+    </HighContrast>
+  </li>
   <li class="menu-item desktop-launcher">
     <LauncherTrigger launcherId="site-launcher" compact={true} gradientBorder={true} />
   </li>

@@ -1,13 +1,12 @@
 ---
 import Navigation from '@components/Navigation.astro'
 import LauncherConfig from '@components/LauncherConfig.astro'
-import { HighContrast, ReducedMotion, SkipLink } from 'accessible-astro-components'
+import { ReducedMotion, SkipLink } from 'accessible-astro-components'
 ---
 
 <header>
   <SkipLink />
   <div hidden>
-    <HighContrast />
     <ReducedMotion />
   </div>
   <Navigation />

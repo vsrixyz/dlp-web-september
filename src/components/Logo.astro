@@ -1,36 +1,36 @@
 ---
 import { Link } from 'accessible-astro-components'
-import { Image } from 'astro:assets'
 import themeConfig from '@theme-config'
 
 /**
  * Logo Component
  *
- * @description Logo description
+ * @description The wave mark plus the site name. The mark is inlined rather than
+ * loaded as an image so its strokes can follow the site's own light/dark toggle
+ * instead of the operating system preference.
  */
-interface Props {
-  /**
-   * Whether to load the image eagerly or lazily
-   * @default 'eager'
-   */
-  loading?: 'eager' | 'lazy'
-}
-
-const { loading = 'eager' }: Props = Astro.props
 ---
 
 <Link href="/" class="flex items-center gap-2">
-  {
-    themeConfig.logo && (
-      <Image
-        src={themeConfig.logo}
-        alt=""
-        aria-hidden="true"
-        width="47"
-        height="37"
-        loading={loading}
-      />
-    )
-  }
+  <svg class="logo-mark" viewBox="0 0 48 38" width="47" height="37" aria-hidden="true" focusable="false">
+    <g fill="none" stroke-width="5" stroke-linecap="round">
+      <path d="M5 14q9.5-11 19 0t19 0" stroke="var(--logo-wave-1)"></path>
+      <path d="M5 24q9.5-11 19 0t19 0" stroke="var(--logo-wave-2)"></path>
+    </g>
+  </svg>
   <span class="text-sm font-bold sm:text-lg">{themeConfig.name}</span>
 </Link>
+
+<style>
+  .logo-mark {
+    --logo-wave-1: var(--color-primary-500);
+    --logo-wave-2: var(--color-secondary-400);
+
+    flex-shrink: 0;
+  }
+
+  :global(.darkmode) .logo-mark {
+    --logo-wave-1: var(--color-primary-200);
+    --logo-wave-2: var(--color-secondary-100);
+  }
+</style>
