@@ -6,35 +6,34 @@ const capabilities = [
   {
     title: 'Digital Ecosystem Discovery',
     description:
-      'A clear picture of where the gaps are across all of it, not just the pages that get the most traffic.',
+      'A structured assessment of your digital touchpoints — website, app, booking flows — to surface gaps and opportunities.',
   },
   {
     title: 'Critical Issue Prioritization',
-    description:
-      'We tell you which problems to care about first and explain why, so you are working from a short list rather than a spreadsheet nobody reads.',
+    description: 'We review the discovery findings to determine which issues matter most and which to tackle first.',
   },
   {
     title: 'Remediation Strategy',
-    description: 'What to fix, in what order, and which person or vendor is doing it.',
+    description: 'A sequenced plan for fixing the prioritized issues, with clear timelines and accountability.',
   },
   {
     title: 'Accessibility Statement & Disclosure',
     description:
-      'A page that names what is not working yet, what you are doing about it, and how a visitor can get help in the meantime. Travelers can tell when a statement is honest, and they respond to it.',
+      "A real accessibility statement that names known issues and current efforts — not boilerplate legal language.",
   },
   {
     title: 'Team Training & Operationalization',
     description:
-      'We teach your staff to build this into the way they already work, so you are not hiring someone to run the same project again in two years.',
+      "We teach your staff to build this into the way they already work, so you're not hiring someone to do this again in two years.",
   },
   {
     title: 'Feedback Loop & Community Engagement',
     description:
-      'A real way for disabled travelers to tell you what they ran into, and a process on your side for answering them.',
+      'The intake, response, and follow-up mechanism that lets you hear from — and stay accountable to — the disabled travelers you serve.',
   },
   {
     title: 'Maturity Roadmap',
-    description: 'Where your practice goes after the first round of fixes.',
+    description: 'A robust plan for growing from an emerging accessibility practice into an advancing one.',
   },
 ]
 
@@ -42,23 +41,23 @@ const approach = [
   {
     id: 'no-overlays',
     label: 'Practice not patches',
-    title: "We don't use overlays or accessibility widgets",
+    title: 'No bandaids or widgets',
     description:
-      "There is no plug-in that makes a website completely work for disabled people. If you already have one running, we'll walk you through what it's actually doing and what it's leaving out.",
+      "No plug-in makes a website work for disabled people. If you're already running one, we'll show you what it's actually doing, what it's missing, and help you build something more durable.",
   },
   {
     id: 'past-requirements',
-    label: 'Accessibility ≠ Usability',
-    title: 'We aim past the requirements',
+    label: 'Beyond compliance',
+    title: 'Accessibility ≠ Usability',
     description:
-      'The federal standard is a checklist, and a site can satisfy all of it while still being completely unusable. We care about whether a visitor can finish what they came to do: find the room, buy the ticket, read the map.',
+      'Most standards are a checklist — a site can be fully conformant and still unusable. We care whether a visitor can actually finish what they came to do: find the room, buy the ticket, read the map.',
   },
   {
     id: 'teach-your-team',
-    label: 'Empowering Practitioners',
-    title: 'We teach you how to fish',
+    label: 'Empowering practitioners',
+    title: 'We are of the practice',
     description:
-      "Small teams can't carry a consultant forever and shouldn't have to. We'd rather train your staff and hand the practice over than sell you a standing retainer.",
+      "Small teams can't afford a consultant forever, and shouldn't have to. We give your team the tools, frameworks, and know-how to carry the work forward on their own.",
   },
 ]
 ---
@@ -77,7 +76,7 @@ const approach = [
         engines, PDF visitor guides, maps, event listings) accessible and usable for all visitors.
       </p>
       <div class="flex flex-wrap gap-4">
-        <Link href="/contact" isButton type="primary" animateOnHover animationType="boop">
+        <Link href="/contact" isButton type="primary" size="lg" animateOnHover animationType="boop">
           Start with a conversation
         </Link>
       </div>
@@ -85,16 +84,38 @@ const approach = [
   </section>
 
   <section
-    class="border-y border-(--border-color-subtle) py-8"
+    class="trust-bar border-y border-(--border-color-subtle) py-8"
     style="background-color: light-dark(var(--color-gray-100), var(--color-gray-800))"
   >
     <div class="container">
-      <p class="italic">
-        Digital accessibility advisor of record, <strong>Travel Oregon's Ask an Expert</strong> program · Oregon is the first
-        Accessibility Verified state in the country
+      <p class="tracking-wide">
+        Digital accessibility advisor of record,
+        <strong
+          ><a
+            href="https://industry.traveloregon.com/programs/ask-an-expert/digital-accessibility-consultation/"
+            target="_blank"
+            rel="noopener noreferrer">Travel Oregon's Ask an Expert</a
+          ></strong
+        >
+        program
       </p>
+      <p class="tracking-wide">Oregon is the first Accessibility Verified state in the country</p>
     </div>
   </section>
+
+  <style>
+    .trust-bar p {
+      max-inline-size: 50rem;
+      margin-inline: auto;
+      text-align: center;
+      line-height: 1.6;
+      color: var(--color-neutral-700);
+    }
+
+    .trust-bar p + p {
+      margin-block-start: 0.25rem;
+    }
+  </style>
 
   <section class="my-24">
     <div class="narrow space-content container">
@@ -155,7 +176,7 @@ const approach = [
     <div class="narrow space-content container">
       <Heading level="h2">How we work</Heading>
     </div>
-    <div class="narrow container mt-8">
+    <div class="narrow container mt-8 how-we-work-tabs">
       <Tabs>
         <TabsList aria-label="How we work">
           {
@@ -179,6 +200,30 @@ const approach = [
       </Tabs>
     </div>
   </section>
+
+  <style>
+    .how-we-work-tabs :global(.tab) {
+      border-width: 1px;
+      border-color: var(--color-primary-300);
+      padding-inline: var(--space-m);
+      padding-block: 2rem;
+    }
+
+    .how-we-work-tabs :global(.tab[aria-selected='true']),
+    .how-we-work-tabs :global(.tab:hover),
+    .how-we-work-tabs :global(.tab:focus-visible) {
+      background-color: var(--color-primary-500);
+      border-color: var(--color-primary-500);
+      color: var(--color-neutral-100);
+      box-shadow: 0 0 0 0.25rem var(--color-primary-100);
+    }
+
+    .how-we-work-tabs :global(.tab-panel) {
+      border-width: 1px;
+      border-color: var(--color-primary-300);
+      padding: var(--space-l);
+    }
+  </style>
 
   <section class="my-24">
     <div class="container">
