@@ -53,8 +53,14 @@
   --font-measure: 70ch;
   --font-family-default: 'Atkinson Hyperlegible', sans-serif;
   --font-family-special: 'Atkinson Hyperlegible', sans-serif;
+  --font-family-display: 'Fraunces', georgia, 'Times New Roman', serif;
+  --font-family-sans-serif: var(--font-family-default);
+  --font-family-monospace: ui-monospace, sfmono-regular, menlo, monaco, consolas, monospace;
 
   // font families
+  // --font-display drives the big headlines (h1, h2) only.
+  // --font-heading covers the smaller headings (h3-h6), which stay hyperlegible.
+  --font-display: var(--font-family-display);
   --font-heading: var(--font-family-special);
   --font-body: var(--font-family-default);
 

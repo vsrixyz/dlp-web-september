@@ -9,12 +9,10 @@ body {
   font-size: 1.15rem;
   line-height: 1.5;
   font-family: var(--font-body);
+  // Every weight and italic we reference has a real file, so synthesis is never
+  // needed - and faux-bold/faux-italic are the blurrier, harder-to-read forms.
   font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
   -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
   background-color: var(--background-color);
   color: var(--foreground-color);
 }
