@@ -1,38 +1,104 @@
 ---
 import DefaultLayout from '@layouts/DefaultLayout.astro'
 import PageHeader from '@components/PageHeader.astro'
-import { Form, Input, Button, Textarea, Heading } from 'accessible-astro-components'
+import { Link, Heading } from 'accessible-astro-components'
+import { Icon } from 'astro-icon/components'
 
-// This site builds to static files, which cannot process a form submission on
-// their own. Point this at your form handler (Netlify Forms, Formspree, or an
-// Astro server endpoint) before launch. Until then the form will not deliver.
-const formAction = '/thank-you'
+const bookingUrl = 'https://fantastical.app/JMDLP/work-inquiry'
 ---
 
 <DefaultLayout
   title="Contact"
-  description="Start with a conversation. A first call runs about half an hour and gives you a straight read on where you stand."
+  description="Book a first call. Half an hour to talk through what you're working with and what it would take to improve it."
 >
   <PageHeader
     title="Start with a conversation"
-    subtitle="A first call runs about half an hour."
+    subtitle="Half an hour, no charge, no obligation."
     bgType="bordered"
   />
 
-  <section class="my-16">
-    <div class="narrow space-content container">
-      <Heading level="h2">Send a message</Heading>
-      <p>
-        Tell us what you're working with. We'll give you a straight read on where you stand and what it would take to
-        improve it.
-      </p>
-      <Form name="contact" action={formAction} method="post">
-        <Input name="name" label="Name" required autocomplete="name" />
-        <Input name="email" label="Email address" type="email" required autocomplete="email" />
-        <Input name="organization" label="Organization" autocomplete="organization" />
-        <Textarea name="message" label="What are you working with?" required />
-        <Button htmlType="submit" type="primary">Send message</Button>
-      </Form>
+  <section class="my-20 md:my-28">
+    <div class="narrow container">
+      <div class="booking-card">
+        <Heading level="h2" class="!mt-0">Book a call</Heading>
+        <p class="lede">
+          Pick a time that works for you. Tell us what you're working with, and we'll tell you honestly where you stand
+          and what it would take to improve it.
+        </p>
+        <ul class="details">
+          <li>
+            <Icon aria-hidden="true" name="lucide:clock" size={20} />
+            <span>About 30 minutes</span>
+          </li>
+          <li>
+            <Icon aria-hidden="true" name="lucide:video" size={20} />
+            <span>Video or phone, your choice</span>
+          </li>
+          <li>
+            <Icon aria-hidden="true" name="lucide:message-circle" size={20} />
+            <span>No pitch, no pressure</span>
+          </li>
+        </ul>
+        <Link href={bookingUrl} isButton type="primary" size="lg" animateOnHover animationType="boop" class="cta">
+          <Icon aria-hidden="true" name="lucide:calendar" size={20} />
+          See available times
+        </Link>
+      </div>
     </div>
   </section>
 </DefaultLayout>
+
+<style>
+  :global(.page-header),
+  :global(.page-header) :global(.container) {
+    text-align: left;
+  }
+
+  .booking-card {
+    border: 1px solid var(--border-color-subtle);
+    border-radius: 1rem;
+    padding: 2.5rem 2rem;
+  }
+
+  @media (width >= 48em) {
+    .booking-card {
+      padding: 4rem 3.5rem;
+    }
+  }
+
+  .booking-card :global(.heading) {
+    margin-bottom: 1.5rem;
+  }
+
+  .lede {
+    max-width: 48ch;
+    margin-bottom: 2.5rem;
+    font-size: var(--font-size-1);
+  }
+
+  .details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2.5rem;
+    margin-bottom: 3rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .details li {
+    display: flex;
+    gap: 0.625rem;
+    align-items: center;
+  }
+
+  .details :global(svg) {
+    flex-shrink: 0;
+    color: var(--color-primary-400);
+  }
+
+  .booking-card :global(.cta) {
+    display: inline-flex;
+    gap: 0.625rem;
+    align-items: center;
+  }
+</style>

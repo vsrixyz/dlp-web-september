@@ -48,6 +48,45 @@ footer a {
   }
 }
 
+// accessible-astro-components scopes its own button styles to
+// `[data-astro-cid-x]:where(.button)` (an attribute selector plus a
+// zero-specificity :where() block). Qualifying our override with the page's
+// <main> landmark - where every button on the site actually lives - gives it
+// real, unambiguous higher specificity instead of relying on source order.
+main .button {
+  border-width: 0;
+  border-radius: var(--radius-l);
+  box-shadow: var(--elevation-1);
+  text-decoration: none;
+}
+
+main .button.type-primary {
+  background-color: var(--color-primary-500);
+  color: var(--color-neutral-100);
+
+  &:where(:hover, :focus-visible) {
+    background-color: var(--color-primary-600);
+    box-shadow: var(--elevation-2);
+  }
+}
+
+main .button.type-secondary {
+  background-color: var(--color-secondary-500);
+  color: var(--color-neutral-100);
+
+  &:where(:hover, :focus-visible) {
+    background-color: var(--color-secondary-400);
+    box-shadow: var(--elevation-2);
+  }
+}
+
+main .button--outlined {
+  background-color: transparent;
+  box-shadow: none;
+  border-width: 2px;
+  border-style: solid;
+}
+
 *:focus,
 *:focus-visible {
   @include outline;

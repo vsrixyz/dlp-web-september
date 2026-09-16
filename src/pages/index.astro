@@ -1,6 +1,15 @@
 ---
 import DefaultLayout from '@layouts/DefaultLayout.astro'
-import { Accordion, AccordionItem, Heading, Link, Tabs, TabsList, TabsPanel, TabsTab } from 'accessible-astro-components'
+import {
+  Accordion,
+  AccordionItem,
+  Heading,
+  Link,
+  Tabs,
+  TabsList,
+  TabsPanel,
+  TabsTab,
+} from 'accessible-astro-components'
 
 const capabilities = [
   {
@@ -19,7 +28,7 @@ const capabilities = [
   {
     title: 'Accessibility Statement & Disclosure',
     description:
-      "A real accessibility statement that names known issues and current efforts — not boilerplate legal language.",
+      'A real accessibility statement that names known issues and current efforts — not boilerplate legal language.',
   },
   {
     title: 'Team Training & Operationalization',
@@ -72,7 +81,7 @@ const approach = [
         they'll make other plans.
       </p>
       <p>
-        We help travel and tourism organizations make all of their digital touch points (websites, mobile apps, booking
+        We help travel and tourism organizations make all of their digital touchpoints (websites, mobile apps, booking
         engines, PDF visitor guides, maps, event listings) accessible and usable for all visitors.
       </p>
       <div class="flex flex-wrap gap-4">
@@ -85,7 +94,7 @@ const approach = [
 
   <section
     class="trust-bar border-y border-(--border-color-subtle) py-8"
-    style="background-color: light-dark(var(--color-gray-100), var(--color-gray-800))"
+    style="background-color: var(--surface-color)"
   >
     <div class="container">
       <p class="tracking-wide">
@@ -97,19 +106,19 @@ const approach = [
             rel="noopener noreferrer">Travel Oregon's Ask an Expert</a
           ></strong
         >
-        program
+        program.
       </p>
-      <p class="tracking-wide">Oregon is the first Accessibility Verified state in the country</p>
+      <p class="tracking-wide">Oregon is the first Accessibility Verified state in the country.</p>
     </div>
   </section>
 
   <style>
     .trust-bar p {
-      max-inline-size: 50rem;
       margin-inline: auto;
-      text-align: center;
+      max-inline-size: 50rem;
+      color: var(--muted-foreground-color);
       line-height: 1.6;
-      color: var(--color-neutral-700);
+      text-align: center;
     }
 
     .trust-bar p + p {
@@ -123,7 +132,7 @@ const approach = [
       <p>
         Travelers with mobility disabilities spend roughly <strong>$58.2 billion</strong> a year on travel. When surveyed
         by MMGY Global, the request that came up most often was better accessibility information <em>before a trip</em>.
-        84% asked for it, putting it ahead of better infrastructure or more accessible lodging.
+        Eighty-four percent asked for it, putting it ahead of better infrastructure or more accessible lodging.
       </p>
       <p>Most of what these travelers want is information your organization already has.</p>
     </div>
@@ -131,7 +140,7 @@ const approach = [
 
   <section class="my-24">
     <div class="narrow space-content container">
-      <Heading level="h3">In the United States, there's a federal deadline looming</Heading>
+      <Heading level="h4">In the United States, there's a federal deadline looming</Heading>
       <p>
         New Department of Justice rules require state and local government websites and mobile apps to meet an
         accessibility standard called WCAG 2.1 Level AA. The deadline is <strong>April 26, 2027</strong> for places serving
@@ -150,9 +159,9 @@ const approach = [
         Chasing bare compliance is a losing strategy that costs you more in the long run.
       </p>
       <p>
-        Most accessibility work usually stops at the homepage, but travelers can face challenges across a number of
-        surfaces. Mobile apps. Booking and ticketing flows. The visitor guide PDF, trail maps, event calendars, and many
-        other forms of digital content.
+        Most accessibility work stops at the homepage, but travelers can face challenges across a number of surfaces.
+        Mobile apps. Booking and ticketing flows. The visitor guide PDF, trail maps, event calendars, and many other
+        forms of digital content.
       </p>
       <p>
         We find what's broken, sort it by what's costing you visitors, fix it in a sensible order, and equip your team
@@ -176,7 +185,7 @@ const approach = [
     <div class="narrow space-content container">
       <Heading level="h2">How we work</Heading>
     </div>
-    <div class="narrow container mt-8 how-we-work-tabs">
+    <div class="narrow how-we-work-tabs container mt-8">
       <Tabs>
         <TabsList aria-label="How we work">
           {
@@ -212,10 +221,10 @@ const approach = [
     .how-we-work-tabs :global(.tab[aria-selected='true']),
     .how-we-work-tabs :global(.tab:hover),
     .how-we-work-tabs :global(.tab:focus-visible) {
-      background-color: var(--color-primary-500);
+      box-shadow: 0 0 0 0.25rem var(--accent-ring-color);
       border-color: var(--color-primary-500);
+      background-color: var(--color-primary-500);
       color: var(--color-neutral-100);
-      box-shadow: 0 0 0 0.25rem var(--color-primary-100);
     }
 
     .how-we-work-tabs :global(.tab-panel) {
@@ -236,7 +245,7 @@ const approach = [
             still looks like theirs.
           </p>
           <p class="mt-4">
-            <Link href="/contact">Learn more about support for design teams</Link>
+            <Link href="/contact">Schedule a conversation to learn more</Link>
           </p>
         </div>
         <div class="rounded-xl border border-(--border-color-subtle) p-6">
@@ -246,24 +255,44 @@ const approach = [
             need an expert in your corner. Hourly, on a sliding scale, and all budgets are welcome.
           </p>
           <p class="mt-4">
-            <Link href="/contact">Learn more about coaching</Link>
+            <Link href="/contact">Schedule a conversation to learn more</Link>
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="my-24">
+  <section class="closing-cta-band my-24 py-16">
     <div class="narrow space-content container">
       <Heading level="h2">Start with a conversation</Heading>
       <p>
-        A first call runs about half an hour. Tell us what you're working with, and we'll give you a straight read on
-        where you stand and what it would take to improve it. If you'd rather take that away and do the work in house,
-        that's a fine outcome and you're welcome to it.
+        This work can feel like a lot. It doesn't have to be — with the right support, it's genuinely empowering, and a
+        real edge for your destination. Let's have an open conversation about what you're up against.
       </p>
       <div class="flex flex-wrap gap-4">
-        <Link href="/contact" isButton type="primary" animateOnHover animationType="boop">Book a call</Link>
+        <Link href="/contact" isButton type="primary" size="lg" animateOnHover animationType="boop"
+          >Schedule a call</Link
+        >
       </div>
     </div>
   </section>
 </DefaultLayout>
+
+<style>
+  .closing-cta-band {
+    clip-path: inset(0 -100vmax);
+    box-shadow: 0 0 0 100vmax var(--accent-surface-color);
+    background-color: var(--accent-surface-color);
+  }
+
+  /*
+   * Dark mode only: the solid primary button reaches ~2.7:1 against the deep
+   * oxblood band, short of the 3:1 WCAG 1.4.11 asks of a control's boundary.
+   * A hairline ring defines the edge without changing the fill. In light mode
+   * the same button sits at 4.08:1 against the blue band and needs no ring.
+   */
+  :global(.darkmode) .closing-cta-band :global(.button) {
+    outline: 1px solid var(--foreground-color);
+    outline-offset: 0;
+  }
+</style>

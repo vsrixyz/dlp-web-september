@@ -17,8 +17,10 @@ export default defineThemeConfig({
     primary: '#2b4bd4',
     // ochre, the warm counterpoint
     secondary: '#cc9034',
-    // blush, tinting the neutral greys warm
-    neutral: '#f3dede',
+    // neutral seed. The grey ramp in _root.scss is defined achromatically and
+    // no longer derives from this value - it was a blush pink that tinted every
+    // surface and all dark-mode text. Kept grey so nothing can reintroduce it.
+    neutral: '#8a8a8a',
     // salmon, reserved for focus indicators
     outline: '#ee9c86',
   },

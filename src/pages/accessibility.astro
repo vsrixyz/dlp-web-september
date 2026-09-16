@@ -6,7 +6,7 @@ import { Heading, Link } from 'accessible-astro-components'
 // Update this whenever the content of this page changes.
 const lastUpdated = 'September 15, 2026'
 
-const contactEmail = 'hola@delapractica.com'
+const accessibilityEmail = 'a11y@delapractica.com'
 ---
 
 <DefaultLayout
@@ -22,8 +22,9 @@ const contactEmail = 'hola@delapractica.com'
   <section class="my-16">
     <div class="narrow space-content container">
       <p>
-        Accessibility is about equal access, which means removing the barriers that stop people using something. This
-        page says plainly what has been checked on this site, what has not, and how to tell us if something is wrong.
+        Accessibility is about equal access, which means removing the barriers that stop people from using something.
+        This page says plainly what has been checked on this site, what has not, and how to tell us if something is
+        wrong.
       </p>
 
       <Heading level="h2">Current status</Heading>
@@ -39,7 +40,9 @@ const contactEmail = 'hola@delapractica.com'
           focus indicator about 6.3:1, each against its own background. Decorative borders are the exception, and they
           are listed under known gaps below.
         </li>
-        <li>Semantic landmarks, a skip link, a single H1 per page, and headings that descend without skipping a level.</li>
+        <li>
+          Semantic landmarks, a skip link, a single H1 per page, and headings that descend without skipping a level.
+        </li>
         <li>
           A visible focus indicator on every interactive element, drawn outside the control rather than on top of it.
         </li>
@@ -52,7 +55,7 @@ const contactEmail = 'hola@delapractica.com'
       <p>
         That is a design review, not an audit. No automated test suite has been run against this site, and no assistive
         technology has been used on it by a person. Automated tools reach roughly a third of the WCAG success criteria
-        anyway. The remaining two thirds, such as whether alternative text conveys the right thing, whether the keyboard
+        anyway. The remaining two-thirds, such as whether alternative text conveys the right thing, whether the keyboard
         order makes sense, and whether an error message helps you recover, need a human being. That work is outstanding,
         and this page will be updated when it is done.
       </p>
@@ -68,15 +71,15 @@ const contactEmail = 'hola@delapractica.com'
             >Atkinson Hyperlegible</Link
           ></strong
         >, published by the Braille Institute and named after its founder, J. Robert Atkinson. It was designed
-        specifically for readers with low vision. The letterforms most often confused with each other, such as capital I,
-        lowercase l and the digit 1, or capital O and zero, or b, d, p and q, are drawn to be told apart rather than to
-        match each other neatly. It is used for headings as well as body text. A second display face would have looked
-        more current, but keeping one typeface means the largest text on the page is also the most legible text on the
-        page.
+        specifically for readers with low vision. The letterforms most often confused with each other, such as capital
+        I, lowercase l and the digit 1, or capital O and zero, or b, d, p and q, are drawn to be told apart rather than
+        to match each other neatly. It is used for headings as well as body text. A second display face would have
+        looked more current, but keeping one typeface means the largest text on the page is also the most legible text
+        on the page.
       </p>
       <p>
-        <strong>Body text is 16 to 18 pixels</strong> depending on window width, at or above the browser default, and it
-        scales with your browser's font size setting rather than overriding it.
+        <strong>Body text is 16 to 18 pixels</strong> depending on window width, at or above the browser default, and it scales
+        with your browser's font size setting rather than overriding it.
       </p>
       <p><strong>Nothing here is conveyed by color alone.</strong></p>
       <p>
@@ -101,9 +104,9 @@ const contactEmail = 'hola@delapractica.com'
           lines make it harder to find the start of the next line, which costs low vision and dyslexic readers most.
         </li>
         <li>
-          <strong>The site opens in light mode</strong> even if your system is set to dark. That was a deliberate choice
-          and it is the wrong default for some people. The toggle in the menu is remembered once you use it, but you should
-          not have to ask.
+          <strong>The site opens in light mode</strong> even if your system is set to dark. That was a deliberate choice and
+          it is the wrong default for some people. The toggle in the menu is remembered once you use it, but you should not
+          have to ask.
         </li>
         <li>
           <strong>Some content on the home page is hidden behind a click.</strong> The capabilities list is an accordion and
@@ -111,9 +114,9 @@ const contactEmail = 'hola@delapractica.com'
           and works against a reader who wants the whole thing.
         </li>
         <li>
-          <strong>Decorative borders fall below the 3:1 non-text contrast minimum</strong>, at roughly 1.4:1. These are the
-          hairlines around cards and between sections. Nothing depends on seeing them, which is why WCAG does not count
-          them as a failure, but they are faint and we would rather say so than lean on the exemption.
+          <strong>Decorative borders fall below the 3:1 non-text contrast minimum</strong>, at roughly 1.4:1. These are
+          the hairlines around cards and between sections. Nothing depends on seeing them, which is why WCAG does not
+          count them as a failure, but they are faint and we would rather say so than lean on the exemption.
         </li>
         <li>
           <strong>Text zoom and reflow have not been formally tested.</strong> The layout is built to wrap on content width
@@ -128,9 +131,8 @@ const contactEmail = 'hola@delapractica.com'
         rather hear it than not.
       </p>
       <p>
-        Email <Link href={`mailto:${contactEmail}`}>{contactEmail}</Link> with the page address and what happened, or use
-        the <Link href="/contact">contact form</Link>. You do not need to know the technical term for it. A description in
-        your own words is genuinely more useful.
+        Email <Link href={`mailto:${accessibilityEmail}`}>{accessibilityEmail}</Link> with the page address and what happened.
+        You do not need to know the technical term for it. A description in your own words is genuinely more useful.
       </p>
       <p>We aim to respond within one week.</p>
 
