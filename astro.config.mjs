@@ -36,7 +36,14 @@ const viteConfig = {
 export default defineConfig({
   compressHTML: true,
   site: 'https://delapractica.com',
-  integrations: [compress(), icon(), sitemap()],
+  integrations: [
+    compress(),
+    icon(),
+    sitemap({
+      // /thank-you only makes sense straight after submitting the form.
+      filter: (page) => !page.includes('/thank-you'),
+    }),
+  ],
   vite: viteConfig,
 
 })

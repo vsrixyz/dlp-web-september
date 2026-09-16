@@ -7,9 +7,10 @@ export default defineThemeConfig({
   id: 'de-la-practica',
   seo: {
     title: 'De La Practica',
-    description: 'Digital accessibility for travel and tourism. De La Practica helps destinations make websites, apps, booking engines, and visitor guides usable for all travelers.',
+    description: 'Digital accessibility for travel and tourism. De La Practica helps destinations make websites, apps, booking engines, and visitor guides usable by all.',
     author: 'Jen Macias De La Parra',
     image: previewImage,
+    imageAlt: 'De La Practica — digital accessibility for travel and tourism. delapractica.com',
   },
   logo: logoImage,
   colors: {

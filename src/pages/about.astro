@@ -1,7 +1,7 @@
 ---
 import DefaultLayout from '@layouts/DefaultLayout.astro'
 import PageHeader from '@components/PageHeader.astro'
-import { Heading } from 'accessible-astro-components'
+import { Heading, Link } from 'accessible-astro-components'
 import { Image } from 'astro:assets'
 import heroImage from '@assets/img/hero.jpeg'
 ---
@@ -37,10 +37,9 @@ import heroImage from '@assets/img/hero.jpeg'
           <aside class="callout" aria-labelledby="ask-an-expert">
             <Heading level="h3" size="h6" id="ask-an-expert" class="callout-title">Ask An Expert</Heading>
             <p>
-              Jen Macias De La Parra is the digital accessibility advisor of record for Travel Oregon's <a
+              Jen Macias De La Parra is the digital accessibility advisor of record for Travel Oregon's <Link
                 href="https://industry.traveloregon.com/programs/ask-an-expert/digital-accessibility-consultation/"
-                target="_blank"
-                rel="noopener noreferrer">Ask an Expert program</a
+                isExternal>Ask an Expert program</Link
               >, supporting destinations, non-profits, and small businesses across the state. Oregon is the first
               Accessibility Verified state in the United States.
             </p>

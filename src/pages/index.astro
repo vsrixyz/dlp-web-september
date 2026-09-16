@@ -71,7 +71,10 @@ const approach = [
 ]
 ---
 
-<DefaultLayout title="De La Practica" useTitleTemplate={false}>
+<DefaultLayout
+  title="De La Practica — Digital Accessibility for Travel &amp; Tourism"
+  useTitleTemplate={false}
+>
   <section class="my-24">
     <div class="narrow space-content container">
       <Heading level="h1">De La Practica</Heading>
@@ -100,10 +103,9 @@ const approach = [
       <p class="tracking-wide">
         Digital accessibility advisor of record,
         <strong
-          ><a
+          ><Link
             href="https://industry.traveloregon.com/programs/ask-an-expert/digital-accessibility-consultation/"
-            target="_blank"
-            rel="noopener noreferrer">Travel Oregon's Ask an Expert</a
+            isExternal>Travel Oregon's Ask an Expert</Link
           ></strong
         >
         program.
@@ -140,7 +142,7 @@ const approach = [
 
   <section class="my-24">
     <div class="narrow space-content container">
-      <Heading level="h4">In the United States, there's a federal deadline looming</Heading>
+      <Heading level="h2">In the United States, there's a federal deadline looming</Heading>
       <p>
         New Department of Justice rules require state and local government websites and mobile apps to meet an
         accessibility standard called WCAG 2.1 Level AA. The deadline is <strong>April 26, 2027</strong> for places serving

@@ -18,13 +18,18 @@ interface Props {
    */
   description?: string
   /**
-   * The URL of the page
+   * The URL of the page. Pass null to omit the canonical link entirely,
+   * which is what a page with no real address (the 404) wants.
    */
-  url?: string
+  url?: string | null
   /**
    * The image path for social sharing (can be ImageMetadata or string path)
    */
   image?: ImageMetadata | string | null
+  /**
+   * Alt text for the social sharing image
+   */
+  imageAlt?: string
   /**
    * The author of the page
    */
@@ -38,6 +43,11 @@ interface Props {
    * Set to false to use the title as-is without appending site name
    */
   useTitleTemplate?: boolean
+  /**
+   * Keep the page out of search results (default: false).
+   * Used by the 404 and by pages that only make sense mid-flow.
+   */
+  noindex?: boolean
 }
 
 const {
@@ -45,15 +55,27 @@ const {
   description = themeConfig.seo.description ?? '',
   url = Astro.url.href,
   image = themeConfig.seo.image ?? null,
+  imageAlt = themeConfig.seo.imageAlt ?? '',
   author = themeConfig.seo.author ?? '',
   type = 'website',
   useTitleTemplate = true,
+  noindex = false,
 } = Astro.props
 
 // For social sharing, we need the full absolute URL
 // If image is an ImageMetadata object, use its src, otherwise treat as string path
 const imagePath = image ? (typeof image === 'string' ? image : image.src) : '/social-preview-image.png'
 const imageUrl = new URL(imagePath, Astro.site).href
+
+// Dimensions let platforms lay the card out before they have fetched the image.
+// Only an ImageMetadata object knows them; a bare string path does not.
+const imageWidth = image && typeof image !== 'string' ? image.width : undefined
+const imageHeight = image && typeof image !== 'string' ? image.height : undefined
+
+// The <title> gets the template applied by astro-seo, but og:title and
+// twitter:title are passed through verbatim - so build the same templated
+// string here, or a shared link to /about reads as a bare "About".
+const socialTitle = useTitleTemplate ? `${title} - ${themeConfig.seo.title}` : title
 ---
 
 <html lang="en" dir="ltr">
@@ -96,22 +118,31 @@ const imageUrl = new URL(imagePath, Astro.site).href
       titleDefault={themeConfig.seo.title}
       description={description}
       canonical={url}
+      noindex={noindex}
       openGraph={{
         basic: {
-          title: title,
+          title: socialTitle,
           type: type,
           image: imageUrl,
-          url: url,
+          url: url ?? undefined,
         },
         optional: {
           description: description,
+          siteName: themeConfig.seo.title,
+          locale: 'en_US',
+        },
+        image: {
+          alt: imageAlt,
+          width: imageWidth,
+          height: imageHeight,
         },
       }}
       twitter={{
         card: 'summary_large_image',
-        title: title,
+        title: socialTitle,
         description: description,
         image: imageUrl,
+        imageAlt: imageAlt,
       }}
       extend={{
         meta: [
@@ -128,7 +159,12 @@ const imageUrl = new URL(imagePath, Astro.site).href
   </head>
   <body>
     <Header />
-    <main id="main-content" transition:animate="fade">
+    <!--
+      tabindex="-1" so the skip link actually moves focus here. Without it
+      several browsers scroll to the anchor but leave focus on the skip link,
+      and the next Tab drops the visitor back into the navigation.
+    -->
+    <main id="main-content" tabindex="-1" transition:animate="fade">
       <slot />
     </main>
     <Footer />

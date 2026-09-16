@@ -88,6 +88,13 @@ const socialLinks = themeConfig.socials ?? []
     --link-color: var(--color-secondary-100);
     --link-hover-color: var(--color-secondary-200);
     --border-color-subtle: oklch(from var(--brand-primary) 30% c h);
+    /*
+     * The footer paints its own dark blue over whatever the page theme is, so
+     * it has to restate the focus ring too. The light-mode salmon reaches only
+     * 2.3:1 here, under the 3:1 SC 1.4.11 asks of a focus indicator; the
+     * lighter ramp step clears it in both themes.
+     */
+    --outline-color: var(--color-outline-100);
 
     background-color: oklch(from var(--brand-primary) 28% c h);
     color: var(--foreground-color);

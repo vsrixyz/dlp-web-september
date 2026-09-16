@@ -39,6 +39,8 @@ export type ThemeConfig = {
     description?: string
     author?: string
     image?: ImageMetadata | string | null
+    /** Alt text describing the social sharing image. */
+    imageAlt?: string
   }
   colors: {
     primary: string
@@ -60,6 +62,7 @@ const defaultConfig: Omit<ThemeConfig, 'name' | 'id'> = {
     description: 'A website built with Accessible Astro Starter',
     author: '',
     image: null,
+    imageAlt: '',
   },
   colors: {
     primary: '#d648ff',

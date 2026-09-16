@@ -35,13 +35,16 @@ const accessibilityEmail = 'a11y@delapractica.com'
       <p>What has been done so far:</p>
       <ul>
         <li>
-          Every text and interactive color pair was checked by hand against the WCAG 2.2 Level AA contrast minimums, in
-          both light and dark mode. Body text measures about 13.8:1, links about 6.4:1, buttons about 12.6:1, and the
-          focus indicator about 6.3:1, each against its own background. Decorative borders are the exception, and they
-          are listed under known gaps below.
+          Text and interactive color pairs were measured against the WCAG 2.2 Level AA contrast minimums, in light and
+          dark mode and with high contrast on and off. Against the page background, body text measures about 13.3:1,
+          links about 6.3:1, buttons about 12.6:1, and the focus indicator about 6.3:1. Components that paint their own
+          background, such as the footer, were measured separately and against their own. Decorative borders are the
+          exception, and they are listed under known gaps below.
         </li>
         <li>
-          Semantic landmarks, a skip link, a single H1 per page, and headings that descend without skipping a level.
+          Semantic landmarks, a skip link that moves focus rather than only scrolling, a single H1 per page, and
+          headings that descend without skipping a level. Body text measures about 64 characters per line on a wide
+          screen, inside the 80 WCAG asks for.
         </li>
         <li>
           A visible focus indicator on every interactive element, drawn outside the control rather than on top of it.
@@ -53,8 +56,9 @@ const accessibilityEmail = 'a11y@delapractica.com'
         <li>Typography chosen for reading rather than for style. Details below.</li>
       </ul>
       <p>
-        That is a design review, not an audit. No automated test suite has been run against this site, and no assistive
-        technology has been used on it by a person. Automated tools reach roughly a third of the WCAG success criteria
+        That is a design review plus one automated pass, not an audit. Every page has been run through axe-core in a
+        real browser, in light and dark mode and at 320, 412 and 1440 pixels wide, and it reports no violations. No
+        assistive technology has been used on this site by a person. Automated tools reach roughly a third of the WCAG success criteria
         anyway. The remaining two-thirds, such as whether alternative text conveys the right thing, whether the keyboard
         order makes sense, and whether an error message helps you recover, need a human being. That work is outstanding,
         and this page will be updated when it is done.
@@ -100,10 +104,6 @@ const accessibilityEmail = 'a11y@delapractica.com'
           because it jumped a moment after opening, that is what happened. It happens here, and it is fixable.
         </li>
         <li>
-          <strong>Line length runs to roughly 85 characters</strong> on a wide screen. WCAG asks for no more than 80. Long
-          lines make it harder to find the start of the next line, which costs low vision and dyslexic readers most.
-        </li>
-        <li>
           <strong>The site opens in light mode</strong> even if your system is set to dark. That was a deliberate choice and
           it is the wrong default for some people. The toggle in the menu is remembered once you use it, but you should not
           have to ask.
@@ -116,7 +116,8 @@ const accessibilityEmail = 'a11y@delapractica.com'
         <li>
           <strong>Decorative borders fall below the 3:1 non-text contrast minimum</strong>, at roughly 1.4:1. These are
           the hairlines around cards and between sections. Nothing depends on seeing them, which is why WCAG does not
-          count them as a failure, but they are faint and we would rather say so than lean on the exemption.
+          count them as a failure, but they are faint and we would rather say so than lean on the exemption. Turning on
+          high contrast strengthens them.
         </li>
         <li>
           <strong>Text zoom and reflow have not been formally tested.</strong> The layout is built to wrap on content width

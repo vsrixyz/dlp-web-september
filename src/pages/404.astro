@@ -3,7 +3,7 @@ import DefaultLayout from '@layouts/DefaultLayout.astro'
 import { Heading, Link } from 'accessible-astro-components'
 ---
 
-<DefaultLayout title="Page not found">
+<DefaultLayout title="Page not found" description="There's nothing at this address." url={null} noindex>
   <section class="my-24">
     <div class="narrow space-content container">
       <Heading level="h1">Page not found</Heading>
