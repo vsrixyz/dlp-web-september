@@ -1,13 +1,69 @@
 @use 'breakpoint' as *;
 
-// Atkinson Hyperlegible font faces
+// ---------------------------------------------------------------------------
+// Fraunces — display serif, used for the largest headlines only (h1, h2).
+// Variable font: opsz 9–144, wght 100–900. Declared 400–900 so a headline can
+// never render at a hairline weight. Split by unicode-range so the latin-ext
+// file is only fetched when a page actually needs those glyphs.
+// SIL Open Font License 1.1 — see OFL-Fraunces.txt
+// ---------------------------------------------------------------------------
+@font-face {
+  font-style: normal;
+  font-weight: 400 900;
+  src: url('/fonts/Fraunces-latin.woff2') format('woff2');
+  font-family: 'Fraunces';
+  font-display: swap;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC,
+    U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 400 900;
+  src: url('/fonts/Fraunces-latin-ext.woff2') format('woff2');
+  font-family: 'Fraunces';
+  font-display: swap;
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F,
+    U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+// Real italics, so `font-synthesis: none` never silently flattens an <em>
+// inside a headline into upright text.
+@font-face {
+  font-style: italic;
+  font-weight: 400 900;
+  src: url('/fonts/Fraunces-Italic-latin.woff2') format('woff2');
+  font-family: 'Fraunces';
+  font-display: swap;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC,
+    U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-style: italic;
+  font-weight: 400 900;
+  src: url('/fonts/Fraunces-Italic-latin-ext.woff2') format('woff2');
+  font-family: 'Fraunces';
+  font-display: swap;
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F,
+    U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+// ---------------------------------------------------------------------------
+// Atkinson Hyperlegible Next — body copy and small headings (h3–h6).
+// No local() sources: the installed font named "Atkinson Hyperlegible" on a
+// visitor's machine is usually the *original* cut, not Next, so local() would
+// serve a different typeface than the one this site ships and tests against.
+// SIL Open Font License 1.1 — see OFL-AtkinsonHyperlegibleNext.txt
+// ---------------------------------------------------------------------------
 @font-face {
   font-style: normal;
   font-weight: 400;
-  src:
-    local('Atkinson Hyperlegible Regular'),
-    local('AtkinsonHyperlegible-Regular'),
-    url('/fonts/AtkinsonHyperlegibleNext-Regular.woff2') format('woff2');
+  src: url('/fonts/AtkinsonHyperlegibleNext-Regular.woff2') format('woff2');
   font-family: 'Atkinson Hyperlegible';
   font-display: swap;
 }
@@ -15,55 +71,7 @@
 @font-face {
   font-style: italic;
   font-weight: 400;
-  src:
-    local('Atkinson Hyperlegible Italic'),
-    local('AtkinsonHyperlegible-Italic'),
-    url('/fonts/AtkinsonHyperlegibleNext-RegularItalic.woff2') format('woff2');
-  font-family: 'Atkinson Hyperlegible';
-  font-display: swap;
-}
-
-@font-face {
-  font-style: normal;
-  font-weight: 700;
-  src:
-    local('Atkinson Hyperlegible Bold'),
-    local('AtkinsonHyperlegible-Bold'),
-    url('/fonts/AtkinsonHyperlegibleNext-Bold.woff2') format('woff2');
-  font-family: 'Atkinson Hyperlegible';
-  font-display: swap;
-}
-
-@font-face {
-  font-style: italic;
-  font-weight: 700;
-  src:
-    local('Atkinson Hyperlegible Bold Italic'),
-    local('AtkinsonHyperlegible-BoldItalic'),
-    url('/fonts/AtkinsonHyperlegibleNext-BoldItalic.woff2') format('woff2');
-  font-family: 'Atkinson Hyperlegible';
-  font-display: swap;
-}
-
-// Additional weights
-@font-face {
-  font-style: normal;
-  font-weight: 300;
-  src:
-    local('Atkinson Hyperlegible Light'),
-    local('AtkinsonHyperlegible-Light'),
-    url('/fonts/AtkinsonHyperlegibleNext-Light.woff2') format('woff2');
-  font-family: 'Atkinson Hyperlegible';
-  font-display: swap;
-}
-
-@font-face {
-  font-style: italic;
-  font-weight: 300;
-  src:
-    local('Atkinson Hyperlegible Light Italic'),
-    local('AtkinsonHyperlegible-LightItalic'),
-    url('/fonts/AtkinsonHyperlegibleNext-LightItalic.woff2') format('woff2');
+  src: url('/fonts/AtkinsonHyperlegibleNext-RegularItalic.woff2') format('woff2');
   font-family: 'Atkinson Hyperlegible';
   font-display: swap;
 }
@@ -71,10 +79,7 @@
 @font-face {
   font-style: normal;
   font-weight: 500;
-  src:
-    local('Atkinson Hyperlegible Medium'),
-    local('AtkinsonHyperlegible-Medium'),
-    url('/fonts/AtkinsonHyperlegibleNext-Medium.woff2') format('woff2');
+  src: url('/fonts/AtkinsonHyperlegibleNext-Medium.woff2') format('woff2');
   font-family: 'Atkinson Hyperlegible';
   font-display: swap;
 }
@@ -82,10 +87,7 @@
 @font-face {
   font-style: italic;
   font-weight: 500;
-  src:
-    local('Atkinson Hyperlegible Medium Italic'),
-    local('AtkinsonHyperlegible-MediumItalic'),
-    url('/fonts/AtkinsonHyperlegibleNext-MediumItalic.woff2') format('woff2');
+  src: url('/fonts/AtkinsonHyperlegibleNext-MediumItalic.woff2') format('woff2');
   font-family: 'Atkinson Hyperlegible';
   font-display: swap;
 }
@@ -93,10 +95,31 @@
 @font-face {
   font-style: normal;
   font-weight: 600;
-  src:
-    local('Atkinson Hyperlegible SemiBold'),
-    local('AtkinsonHyperlegible-SemiBold'),
-    url('/fonts/AtkinsonHyperlegibleNext-SemiBold.woff2') format('woff2');
+  src: url('/fonts/AtkinsonHyperlegibleNext-SemiBold.woff2') format('woff2');
+  font-family: 'Atkinson Hyperlegible';
+  font-display: swap;
+}
+
+@font-face {
+  font-style: italic;
+  font-weight: 600;
+  src: url('/fonts/AtkinsonHyperlegibleNext-SemiBoldItalic.woff2') format('woff2');
+  font-family: 'Atkinson Hyperlegible';
+  font-display: swap;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/AtkinsonHyperlegibleNext-Bold.woff2') format('woff2');
+  font-family: 'Atkinson Hyperlegible';
+  font-display: swap;
+}
+
+@font-face {
+  font-style: italic;
+  font-weight: 700;
+  src: url('/fonts/AtkinsonHyperlegibleNext-BoldItalic.woff2') format('woff2');
   font-family: 'Atkinson Hyperlegible';
   font-display: swap;
 }
@@ -114,11 +137,6 @@
   h6 {
     font-family: var(--font-heading);
     text-wrap: balance;
-  }
-
-  h1,
-  h2 {
-    font-weight: 600;
   }
 
   h3,
@@ -157,4 +175,26 @@
     font-size: var(--font-size-1);
     line-height: var(--font-size-2);
   }
+}
+
+// ---------------------------------------------------------------------------
+// The big headlines carry the display serif. h3-h6 stay in Atkinson: at those
+// sizes a serif competes with body copy instead of contrasting against it.
+//
+// Deliberately outside `@layer base`, and deliberately using doubled classes.
+// `accessible-astro-components` renders <Heading> as `<h1 class="heading h1">`
+// and styles it with an unlayered, Astro-scoped
+// `[data-astro-cid-*]:where(.h1, .h2) { font-weight: 600 }` (specificity 0-1-0).
+// A layered rule always loses to that regardless of specificity, so this sits
+// unlayered at 0-2-0 to land on both plain <h1> elements and component ones.
+// ---------------------------------------------------------------------------
+h1,
+h2,
+.h1.h1,
+.h2.h2 {
+  font-weight: 700;
+  font-family: var(--font-display);
+  // Fraunces' opsz axis defaults to 9 (its small-text drawing). `auto` lets the
+  // browser track the rendered size, which is what keeps these sturdy.
+  font-optical-sizing: auto;
 }
