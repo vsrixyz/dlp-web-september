@@ -9,7 +9,8 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "deploy": "astro build && wrangler deploy"
   },
   "keywords": [
     "astro",
@@ -48,7 +49,8 @@
     "sanitize-html": "^2.17.3",
     "sass": "^1.99.0",
     "svgo": "^4.0.1",
-    "tailwindcss": "^4.2.4"
+    "tailwindcss": "^4.2.4",
+    "wrangler": "^4.132.0"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",
