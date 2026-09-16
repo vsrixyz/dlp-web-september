@@ -83,7 +83,21 @@ const socialLinks = themeConfig.socials ?? []
 </footer>
 
 <style>
+  footer {
+    --foreground-color: var(--color-neutral-100);
+    --link-color: var(--color-secondary-100);
+    --link-hover-color: var(--color-secondary-200);
+    --border-color-subtle: oklch(from var(--brand-primary) 30% c h);
+
+    background-color: oklch(from var(--brand-primary) 28% c h);
+    color: var(--foreground-color);
+  }
+
   footer section {
     border-top: 1px solid var(--border-color-subtle);
+  }
+
+  footer section:last-of-type {
+    background-color: oklch(from var(--brand-primary) 12% c h);
   }
 </style>

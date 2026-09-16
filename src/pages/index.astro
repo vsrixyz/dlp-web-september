@@ -41,21 +41,21 @@ const capabilities = [
 const approach = [
   {
     id: 'no-overlays',
-    label: 'No overlays',
+    label: 'Practice not patches',
     title: "We don't use overlays or accessibility widgets",
     description:
       "There is no plug-in that makes a website completely work for disabled people. If you already have one running, we'll walk you through what it's actually doing and what it's leaving out.",
   },
   {
     id: 'past-requirements',
-    label: 'Past the requirements',
+    label: 'Accessibility ≠ Usability',
     title: 'We aim past the requirements',
     description:
       'The federal standard is a checklist, and a site can satisfy all of it while still being completely unusable. We care about whether a visitor can finish what they came to do: find the room, buy the ticket, read the map.',
   },
   {
     id: 'teach-your-team',
-    label: 'Teach your team',
+    label: 'Empowering Practitioners',
     title: 'We teach you how to fish',
     description:
       "Small teams can't carry a consultant forever and shouldn't have to. We'd rather train your staff and hand the practice over than sell you a standing retainer.",
@@ -65,7 +65,7 @@ const approach = [
 
 <DefaultLayout title="De La Practica" useTitleTemplate={false}>
   <section class="my-24">
-    <div class="space-content container">
+    <div class="narrow space-content container">
       <Heading level="h1">De La Practica</Heading>
       <p class="text-2xl">Digital accessibility for travel and tourism</p>
       <p>
@@ -84,9 +84,12 @@ const approach = [
     </div>
   </section>
 
-  <section class="border-y border-(--border-color-subtle) py-8">
+  <section
+    class="border-y border-(--border-color-subtle) py-8"
+    style="background-color: light-dark(var(--color-gray-100), var(--color-gray-800))"
+  >
     <div class="container">
-      <p>
+      <p class="italic">
         Digital accessibility advisor of record, <strong>Travel Oregon's Ask an Expert</strong> program · Oregon is the first
         Accessibility Verified state in the country
       </p>
@@ -102,6 +105,19 @@ const approach = [
         84% asked for it, putting it ahead of better infrastructure or more accessible lodging.
       </p>
       <p>Most of what these travelers want is information your organization already has.</p>
+    </div>
+  </section>
+
+  <section class="my-24">
+    <div class="narrow space-content container">
+      <Heading level="h3">In the United States, there's a federal deadline looming</Heading>
+      <p>
+        New Department of Justice rules require state and local government websites and mobile apps to meet an
+        accessibility standard called WCAG 2.1 Level AA. The deadline is <strong>April 26, 2027</strong> for places serving
+        50,000 people or more, and <strong>April 26, 2028</strong> for smaller communities and special districts. Many destination
+        organizations are covered directly, and others are covered through the contracts they hold with a city or state.
+      </p>
+      <p>Now is the time to build a practice.</p>
     </div>
   </section>
 
@@ -165,22 +181,8 @@ const approach = [
   </section>
 
   <section class="my-24">
-    <div class="narrow space-content container">
-      <Heading level="h2">In the United States, there's a federal deadline looming</Heading>
-      <p>
-        New Department of Justice rules require state and local government websites and mobile apps to meet an
-        accessibility standard called WCAG 2.1 Level AA. The deadline is <strong>April 26, 2027</strong> for places serving
-        50,000 people or more, and <strong>April 26, 2028</strong> for smaller communities and special districts. Many destination
-        organizations are covered directly, and others are covered through the contracts they hold with a city or state.
-      </p>
-      <p>Now is the time to build a practice.</p>
-    </div>
-  </section>
-
-  <section class="my-24">
-    <div class="space-content container">
-      <Heading level="h2">Other services</Heading>
-      <div class="mt-12 grid gap-6 md:grid-cols-2">
+    <div class="container">
+      <div class="grid gap-6 md:grid-cols-2">
         <div class="rounded-xl border border-(--border-color-subtle) p-6">
           <Heading level="h3" size="h5">Support for design teams</Heading>
           <p class="mt-3">
