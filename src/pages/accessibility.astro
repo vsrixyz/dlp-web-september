@@ -3,8 +3,25 @@ import DefaultLayout from '@layouts/DefaultLayout.astro'
 import PageHeader from '@components/PageHeader.astro'
 import { Heading, Link } from 'accessible-astro-components'
 
-// Update this whenever the content of this page changes.
-const lastUpdated = 'September 15, 2026'
+import { execSync } from 'node:child_process'
+
+// Taken from this file's last commit date so it cannot drift out of step with
+// the content. Falls back to the last hand-checked date if the build has no
+// git history to read.
+const lastUpdated = (() => {
+  try {
+    const iso = execSync('git log -1 --format=%cs -- src/pages/accessibility.astro', { encoding: 'utf8' }).trim()
+    if (!iso) throw new Error('no history')
+    return new Date(`${iso}T00:00:00Z`).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      timeZone: 'UTC',
+    })
+  } catch {
+    return 'September 15, 2026'
+  }
+})()
 
 const accessibilityEmail = 'a11y@delapractica.com'
 ---
@@ -95,8 +112,13 @@ const accessibilityEmail = 'a11y@delapractica.com'
       <p>These are the things we already know are imperfect. Naming them is cheaper than being caught out by them.</p>
       <ul>
         <li>
-          <strong>No manual screen reader pass has been completed yet</strong>, and no automated test suite runs against
-          the site.
+          <strong>No manual screen reader pass has been completed yet.</strong> The automated pass above finds what it
+          can, which is not most of it.
+        </li>
+        <li>
+          <strong>Booking a call happens on someone else's software.</strong> The button on our contact page hands you to
+          a third-party scheduling tool that we have not assessed and cannot fix. If it does not work for you, email us and
+          we will book the call by reply.
         </li>
         <li>
           <strong>Text reflows when the page finishes loading.</strong> Web fonts arrive after the first paint, and the browser
@@ -120,9 +142,9 @@ const accessibilityEmail = 'a11y@delapractica.com'
           high contrast strengthens them.
         </li>
         <li>
-          <strong>Text zoom and reflow have not been formally tested.</strong> The layout is built to wrap on content width
-          rather than on window width, which should survive text-only zoom, but "should" is not "verified" and this is exactly
-          the kind of claim this page will not make until someone has checked it by hand.
+          <strong>Text-only zoom has not been tested.</strong> Reflow at 320 pixels and the WCAG text-spacing overrides
+          have both been checked and both pass. Zooming text on its own to 200 percent, without zooming the layout, has not
+          been, and "should work" is not "verified".
         </li>
       </ul>
 
